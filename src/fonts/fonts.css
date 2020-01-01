@@ -1,0 +1,28 @@
+@font-face {
+    font-family: linea-arrows-10;
+    src: url("./linear-arrows-10/linea-arrows-10.eot");
+    src: url("./linear-arrows-10/linea-arrows-10.eot?#iefix") format("embedded-opentype"),
+    url("./linear-arrows-10/linea-arrows-10.woff") format("woff"),
+    url("./linear-arrows-10/linea-arrows-10.ttf") format("truetype"),
+    url("./linear-arrows-10/linea-arrows-10.svg#linea-basic-10") format("svg");
+    font-weight: 400;
+    font-style: normal
+}
+
+[class*=icon-arrows],
+[class^=icon-arrows] {
+    font-family: linea-arrows-10;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 5rem;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.icon-arrows-slim-down:before {
+    content: "\e064"
+}
