@@ -36,10 +36,10 @@ const FullBackgroundImg = ({ className, children }) => {
         className={className}
         fluid={imageData}
         backgroundColor={`#040e18`}
-        title="Fullscreen Background"
+        title="Etienne Home Background"
         id="fullscreenbg"
         role="img"
-        aria-label="Fullscreen Background"
+        aria-label="Etienne Home Background"
         preserveStackingContext={true}
       >
         {children}

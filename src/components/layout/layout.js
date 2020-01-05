@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   transition: color 0.2s ease-out, background 0.2s ease-out;
 `;
 
-const StyledMain = styled.main`
+const StyledMain = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
