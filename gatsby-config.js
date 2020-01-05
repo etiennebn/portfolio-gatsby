@@ -3,6 +3,7 @@ module.exports = {
     title: `Etienne Bourgoin`,
     description: `Personal website as a showcase of what I can do.`,
     author: `@etiennebn`,
+    siteUrl: "https://www.ebourgoin.com",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -12,7 +13,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-polyfill-io`,
       options: {
-        features: [`EventSource`]
+        features: [`EventSource`],
       },
     },
     {
@@ -20,7 +21,7 @@ module.exports = {
       options: {
         name: `content`,
         path: `${__dirname}/src/content`,
-      }
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -33,8 +34,8 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "fonts",
-        path: `${__dirname}/src/fonts/`
-      }
+        path: `${__dirname}/src/fonts/`,
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -65,6 +66,14 @@ module.exports = {
             variants: [`200`, `400`, `500`, `600`, `700`],
           },
         ],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://www.ebourgoin.com",
+        sitemap: "https://www.ebourgoin.com/sitemap.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
