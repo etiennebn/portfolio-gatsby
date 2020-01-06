@@ -1,16 +1,53 @@
 import React from "react"
 import styled from "styled-components"
 import StyledInitialsLogo from "../components/styledInitialsLogo"
+import { useStaticQuery, graphql } from "gatsby"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faGithub,
+  faLinkedinIn,
+} from "@fortawesome/free-brands-svg-icons"
 
 const AboutWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   position: relative;
   min-height: 100vh;
   background-color: var(--primary);
-  padding: 5rem 5rem 0 5rem;
+  padding: 5rem;
+  padding-top: 20rem;
+  @media ${props => props.theme.mediaQueries.medium} {
+    padding-top: 5rem;
+  }
+`
+
+const SocialLinksContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5rem;
+`
+
+const SocialLink = styled.a`
+  text-decoration: none;
+  border-radius: 50%;
+  width: 4.5rem;
+  height: 4.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--white);
+  margin: 0 1.5rem;
+  transition: all 0.2s ease-out;
+`
+
+const SocialIcon = styled(FontAwesomeIcon)`
+  color: var(--white);
+  font-size: 2.2rem;
+  transition: color 0.2s ease-out;
 `
 
 const Content = styled.div`
@@ -30,7 +67,7 @@ const Content = styled.div`
     }
   }
   width: 50%;
-  @media ${props => props.theme.mediaQueries.small} {
+  @media ${props => props.theme.mediaQueries.medium} {
     width: 90%;
   }
 `
@@ -44,7 +81,7 @@ const SkillsContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 30%;
-  @media ${props => props.theme.mediaQueries.small} {
+  @media ${props => props.theme.mediaQueries.medium} {
     width: 100%;
   }
   h2 {
@@ -65,7 +102,7 @@ const ExperienceContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 70%;
-  @media ${props => props.theme.mediaQueries.small} {
+  @media ${props => props.theme.mediaQueries.medium} {
     width: 100%;
   }
   h2 {
@@ -106,6 +143,18 @@ const AboutSection = () => {
     }
     return <> {age} </>
   }
+  const { site } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          social {
+            github
+            linkedin
+          }
+        }
+      }
+    }
+  `)
   return (
     <AboutWrapper name="about" id="about">
       <StyledInitialsLogo
@@ -199,6 +248,24 @@ const AboutSection = () => {
           </ExperienceContainer>
         </CuriculumVitae>
       </Content>
+      <SocialLinksContainer>
+        <SocialLink
+          rel="noreferrer"
+          target="_blank"
+          aria-label="Github"
+          href={`https://github.com/${site.siteMetadata.social.github}`}
+        >
+          <SocialIcon icon={faGithub} />
+        </SocialLink>
+        <SocialLink
+          rel="noreferrer"
+          target="_blank"
+          aria-label="LinkedIn"
+          href={`https://www.linkedin.com/in/${site.siteMetadata.social.linkedin}`}
+        >
+          <SocialIcon icon={faLinkedinIn} />
+        </SocialLink>
+      </SocialLinksContainer>
     </AboutWrapper>
   )
 }

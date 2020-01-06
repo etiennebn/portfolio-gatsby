@@ -4,6 +4,10 @@ module.exports = {
     description: `Personal website as a showcase of what I can do.`,
     author: `@etiennebn`,
     siteUrl: "https://www.ebourgoin.com",
+    social: {
+      github: "etiennebn",
+      linkedin: "etienne-bourgoin",
+    },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -67,6 +71,12 @@ module.exports = {
         host: "https://www.ebourgoin.com",
         sitemap: "https://www.ebourgoin.com/sitemap.xml",
         policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        sitemapSize: 5000,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
