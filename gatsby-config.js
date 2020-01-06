@@ -1,9 +1,14 @@
 module.exports = {
   siteMetadata: {
     title: `Etienne Bourgoin`,
-    description: `Personal website as a showcase of what I can do.`,
+    description: `Hello I am Etienne Bourgoin. This is a personal website built with Gatsby on top of React. It is a showcase of what I can do.`,
     author: `@etiennebn`,
     siteUrl: "https://www.ebourgoin.com",
+    keywords: "portfolio, developer, lead developer, front-end, back-end, fullstack",
+    social: {
+      github: "etiennebn",
+      linkedin: "etienne-bourgoin",
+    },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -67,6 +72,12 @@ module.exports = {
         host: "https://www.ebourgoin.com",
         sitemap: "https://www.ebourgoin.com/sitemap.xml",
         policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        sitemapSize: 5000,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

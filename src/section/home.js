@@ -25,7 +25,7 @@ const NameHeading = styled.div`
     flex-grow: 1;
     background-color: var(--primary);
     margin-bottom: 1rem;
-    @media ${props => props.theme.mediaQueries.small} {
+    @media ${props => props.theme.mediaQueries.medium} {
       display: none;
     }
   }
@@ -47,6 +47,9 @@ const Heading = styled.h1`
 const SlimArrowDown = styled.button`
   position: absolute;
   bottom: 10px;
+  @media ${props => props.theme.mediaQueries.small} {
+    bottom: 5rem;
+  }
   left: calc(50% - 25px);
   width: 50px;
   background: none;
